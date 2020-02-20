@@ -57,8 +57,8 @@ if __name__ == "__main__":
         chosen_libraries += 1
         libraries = libraries[1:]
         books_to_remove = mvp.get_books()
-        for library in libraries:
-            library.remove_duplicates(books_to_remove)
+        # for library in libraries:
+        #     library.remove_duplicates(books_to_remove)
         output_string += str(mvp.id) + " " + str(mvp.n) + "\n"
         for book in books_to_remove:
             output_string += str(book.get_id()) + " "
