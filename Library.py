@@ -7,9 +7,10 @@ class Library:
         self.time_to_sign_up = time_to_sign_up
         self.no_of_books_per_day = no_of_books_per_day
         self.n = None
-        self.set_of_books = []
-        while not set_of_books.empty():
-            self.set_of_books.append(set_of_books.get()[1])
+        self.set_of_books = set_of_books
+        # self.set_of_books = []
+        # while not set_of_books.empty():
+        #     self.set_of_books.append(set_of_books.get()[1])
         print(self.id)
 
 

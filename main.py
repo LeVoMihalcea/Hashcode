@@ -21,20 +21,24 @@ if __name__ == "__main__":
 
     book_scores = in_file.readline().strip().split(' ')
 
-    master_books_array = []
+    master_books_array = {}
     for i in range(number_of_total_books):
         new_book = Book(i, int(book_scores[i]))
-        master_books_array.append(new_book)
+        master_books_array[i] = new_book
+
+    print("created master book array")
 
     libraries = []
     for n in range(number_of_total_libraries):
         library_atttributes = in_file.readline().strip().split(' ')
         books_in_library = in_file.readline().strip().split(' ')
 
-        set_of_books = PriorityQueue()
+        # set_of_books = PriorityQueue()
+        set_of_books = []
         for i in books_in_library:
-            book_to_put_in = find_book_in_array(int(i), master_books_array)
-            set_of_books.put((book_to_put_in.get_score(), book_to_put_in))
+            # book_to_put_in = find_book_in_array(int(i), master_books_array)
+            # set_of_books.put((book_to_put_in.get_score(), book_to_put_in))
+            set_of_books.append(master_books_array[int(i)])
 
         new_library = Library(n, set_of_books, int(library_atttributes[1]), int(library_atttributes[2]))
         libraries.append(new_library)
