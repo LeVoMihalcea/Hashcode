@@ -1,5 +1,5 @@
 from Book import Book
-
+from random import shuffle
 
 class Library:
     def __init__(self, id, set_of_books, time_to_sign_up, no_of_books_per_day):
@@ -8,6 +8,7 @@ class Library:
         self.no_of_books_per_day = no_of_books_per_day
         self.n = None
         set_of_books.sort(key=lambda x: x.score, reverse = True)
+        #shuffle(set_of_books)
         self.set_of_books = set_of_books
         # self.set_of_books = []
         # while not set_of_books.empty():
@@ -31,7 +32,7 @@ class Library:
             if not i<l:
                 self.n = cont
                 break
-            if self.set_of_books[i].scanned:
+            if not self.set_of_books[i].scanned:
                 score = score + self.set_of_books[i].get_score()
                 cont += 1
             i += 1
