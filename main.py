@@ -33,7 +33,8 @@ if __name__ == "__main__":
 
         set_of_books = PriorityQueue()
         for i in books_in_library:
-            set_of_books.put(find_book_in_array(int(i), master_books_array), )
+            book_to_put_in = find_book_in_array(int(i), master_books_array)
+            set_of_books.put((book_to_put_in.get_score(), book_to_put_in))
 
         new_library = Library(n, set_of_books, int(library_atttributes[1]), int(library_atttributes[2]))
         libraries.append(new_library)
