@@ -6,10 +6,11 @@ def find_book_in_array(book_id, master_array):
     for book in master_array:
         if book.get_id() == book_id:
             return book
-#
+
 # def get_max_rating(libraries):
 #     max = -9999999
-#     for library in libraries
+#     for library in libraries:
+#
 
 if __name__ == "__main__":
     in_file = open('input.txt', 'r')
@@ -55,9 +56,15 @@ if __name__ == "__main__":
         print(str(current_day) + "/" + str(deadline))
         if not libraries:
             break
-        libraries.sort(key=lambda x: x.compute_rating(current_day, deadline), reverse=True)
         mvp = libraries[0]
-        libraries = libraries[1:]
+        mvp_rating = mvp.compute_rating(current_day, deadline)
+        for library in libraries:
+            library_rating = library.compute_rating(current_day, deadline)
+            if library_rating > mvp_rating:
+                mvp = library
+                mvp_rating = library_rating
+
+        libraries.remove(mvp)
         books_to_remove = mvp.get_books()
         for book in books_to_remove:
             book.scanned = True
