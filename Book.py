@@ -2,6 +2,7 @@ class Book:
     def __init__(self, id, score):
         self.id = id
         self.score = score
+        self.scanned = False
 
     def get_score(self):
         return self.score
