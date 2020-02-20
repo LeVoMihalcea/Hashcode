@@ -1,14 +1,15 @@
 from Book import Book
 from random import shuffle
 
+
 class Library:
     def __init__(self, id, set_of_books, time_to_sign_up, no_of_books_per_day):
         self.id = id
         self.time_to_sign_up = time_to_sign_up
         self.no_of_books_per_day = no_of_books_per_day
         self.n = None
-        set_of_books.sort(key=lambda x: x.score, reverse = True)
-        #shuffle(set_of_books)
+        set_of_books.sort(key=lambda x: x.score, reverse=True)
+        # shuffle(set_of_books)
         self.set_of_books = set_of_books
         # self.set_of_books = []
         # while not set_of_books.empty():
@@ -29,7 +30,7 @@ class Library:
         i = 0
         cont = 0
         while cont < n:
-            if not i<l:
+            if not i < l:
                 self.n = cont
                 break
             if not self.set_of_books[i].scanned:
@@ -41,11 +42,14 @@ class Library:
 
     def get_books(self):
         books = []
+        cont = 0
         for book in self.set_of_books:
+            if cont == self.n:
+                break
             if not book.scanned:
                 books.append(book)
+                cont+=1
         return books
-
 
     def remove_duplicates(self, books_to_remove):
         for book in self.set_of_books:

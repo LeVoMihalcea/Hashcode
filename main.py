@@ -68,7 +68,7 @@ if __name__ == "__main__":
         books_to_remove = mvp.get_books()
         for book in books_to_remove:
             book.scanned = True
-        if mvp.n < 0: break
+        if mvp.n <= 0: break
         chosen_libraries += 1
         output_string += str(mvp.id) + " " + str(len(books_to_remove)) + "\n"
         for book in books_to_remove:
